@@ -1,6 +1,14 @@
 # QuizMakerProject
-Bu proje Tasarım Desenleri dersi için hazırlanmıştır
+Bu proje Tasarım Desenleri dersi için hazırlanmıştır.
 Bu bu projede Görev Alanlar : Ömer BEDEN, Arif GİDER, Fatih ÇETİN, Anıl DEMİRTÜRK, Murat KARÇİGA
+Bu projede universitedeki ara sınavların öğretim üyeleri tarafından hazırlanmasını kolaylaştırmak için yapılmıştır.
+
+# Projede Kullanılan Tasarım Kalıpları
+Facade,Strateji,Singleton
+
+# Projede Kullanılan Araçlar ve Kütüphaneler
+Apache POI, Jasper Report , Swing 
+
 
 # ScreenShots
 # 1
