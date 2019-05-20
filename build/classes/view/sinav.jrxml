@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50759719-7028-45d3-a285-ae76ef634e9a">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     sinavlar.`sinav_id` AS sinavlar_sinav_id,
+     sinavlar.`sinav_adi` AS sinavlar_sinav_adi,
+     sinavsorulariyeni.`sinav_sorusu` AS sinavsorulariyeni_sinav_sorusu,
+     sinavsorulariyeni.`a` AS sinavsorulariyeni_a,
+     sinavsorulariyeni.`b` AS sinavsorulariyeni_b,
+     sinavsorulariyeni.`c` AS sinavsorulariyeni_c,
+     sinavsorulariyeni.`d` AS sinavsorulariyeni_d,
+     sinavsorulariyeni.`soru_id` AS sinavsorulariyeni_soru_id
+FROM
+     `sinavlar` sinavlar,
+     `sinavsorulariyeni` sinavsorulariyeni
+WHERE
+     sinavsorulariyeni.sinav_id=(SELECT MAX(sinav_id) from sinavlar)]]>
+	</queryString>
+	<field name="sinavlar_sinav_id" class="java.lang.Integer"/>
+	<field name="sinavlar_sinav_adi" class="java.lang.String"/>
+	<field name="sinavsorulariyeni_sinav_sorusu" class="java.lang.String"/>
+	<field name="sinavsorulariyeni_a" class="java.lang.String"/>
+	<field name="sinavsorulariyeni_b" class="java.lang.String"/>
+	<field name="sinavsorulariyeni_c" class="java.lang.String"/>
+	<field name="sinavsorulariyeni_d" class="java.lang.String"/>
+	<field name="sinavsorulariyeni_soru_id" class="java.lang.Integer"/>
+	<group name="sinavsorulariyeni_soru_id">
+		<groupExpression><![CDATA[$F{sinavsorulariyeni_soru_id}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#9DB1B8" uuid="44d1f98a-600a-4029-b67f-34647812e5f0"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="1" width="479" height="23" forecolor="#FFFFFF" uuid="e417b05b-2c02-407e-b6ee-d0cbe96280e4"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{sinavsorulariyeni_soru_id}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="109" y="28" width="444" height="44" uuid="a21f3222-c288-417b-b544-585a7af2f37e"/>
+				<textElement>
+					<font size="30" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sinavlar_sinav_adi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="134" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="119" width="551" height="1" uuid="32e9469c-27dc-41a8-84c9-2367a7de4d3c"/>
+			</line>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="10" y="37" width="132" height="20" forecolor="#000000" uuid="ae19da8b-70f1-4d60-beed-148bcb1b57b2"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[A-)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="156" y="41" width="338" height="18" uuid="aaed2a3d-1dbc-4411-b428-1f8c3e8567de"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sinavsorulariyeni_a}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="10" y="59" width="132" height="20" forecolor="#000000" uuid="f23d3f99-032f-404e-a297-247e61c0a3c4"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[B-)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="156" y="61" width="338" height="18" uuid="1cf74ee6-c322-44fa-8a93-3afca213b82c"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sinavsorulariyeni_b}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="10" y="79" width="132" height="20" forecolor="#000000" uuid="4c705bb1-339c-4302-b872-9451cdf7be18"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[C-)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="156" y="79" width="338" height="18" uuid="25748cb6-488e-4492-9bef-6f4cb9ad9849"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sinavsorulariyeni_c}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="10" y="99" width="132" height="20" forecolor="#000000" uuid="406dde7a-0833-46ab-96aa-1f1eac98236f"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[D-)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="156" y="97" width="338" height="18" uuid="1bd846e6-0eb0-49fe-ab7f-e0ee78bd559b"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sinavsorulariyeni_d}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="10" y="1" width="132" height="20" forecolor="#000000" uuid="66bef493-5e95-4261-8ab1-f365577586eb"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Soru :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="156" y="1" width="338" height="18" uuid="5cd76b11-7ae4-4e77-a99a-54363f6ec97a"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sinavsorulariyeni_sinav_sorusu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="1ee94356-5dd7-4bc0-b88d-279bffbf2394"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="e38ad736-ae1a-40ab-b09f-ceabf9b56058"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="-1" width="40" height="13" forecolor="#FFFFFF" uuid="32d1d9bb-8e87-4b7e-bf06-2820eb18b807"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="-1" width="80" height="13" forecolor="#FFFFFF" uuid="989ea98d-aa9a-440e-8957-c6554501648b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="27b96d70-672f-47f7-8f62-3844b402fce5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
