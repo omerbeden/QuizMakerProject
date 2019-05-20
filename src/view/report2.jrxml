@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="16e2ea67-bda7-46a2-b2ab-30472c6a5adc">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.9487171000000045"/>
+	<property name="ireport.x" value="15"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     derlik.`bina_adi` AS derlik_bina_adi,
+     derlik.`salon_no` AS derlik_salon_no,
+     derlik.`salon_kodu` AS derlik_salon_kodu,
+     derlik.`salon_kapasitesi` AS derlik_salon_kapasitesi,
+     ogrenci.`O_adi` AS ogrenci_O_adi,
+     ogrenci.`O_numara` AS ogrenci_O_numara
+FROM
+     `derlik` derlik,
+     `ogrenci` ogrenci]]>
+	</queryString>
+	<field name="derlik_bina_adi" class="java.lang.String"/>
+	<field name="derlik_salon_no" class="java.lang.String"/>
+	<field name="derlik_salon_kodu" class="java.lang.String"/>
+	<field name="derlik_salon_kapasitesi" class="java.lang.Integer"/>
+	<field name="ogrenci_O_adi" class="java.lang.String"/>
+	<field name="ogrenci_O_numara" class="java.lang.Integer"/>
+	<group name="ogrenci_O_numara">
+		<groupExpression><![CDATA[$F{ogrenci_O_numara}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="1"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="78" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="248" y="-2" width="132" height="20" forecolor="#000000" uuid="ddf6cf3e-e69f-4909-b6a5-06112d3be7f7"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[derlik_bina_adi]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="380" y="0" width="173" height="18" uuid="df1e9cdf-9b73-4f09-af89-83b020d42cf7"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{derlik_bina_adi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="248" y="18" width="132" height="20" forecolor="#000000" uuid="068a3983-7f69-4997-bb20-a9693b78a1ab"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[derlik_salon_no]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="380" y="20" width="173" height="18" uuid="335434f9-8cda-4062-ae8e-e883a3c01a8c"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{derlik_salon_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="248" y="38" width="132" height="20" forecolor="#000000" uuid="76a9b1e0-63f4-4574-ae2d-2319b58af7dc"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[derlik_salon_kodu]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="380" y="40" width="173" height="18" uuid="21b096a6-2b68-4c69-81db-a7ba3d42856d"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{derlik_salon_kodu}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="248" y="58" width="132" height="20" forecolor="#000000" uuid="624534d7-a7c2-449d-82a4-c601d6e4d25a"/>
+				<textElement textAlignment="Right">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[derlik_salon_kapasitesi]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="380" y="60" width="173" height="18" uuid="6d042a48-3162-4afc-b9c9-68f059feb00f"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{derlik_salon_kapasitesi}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="77" width="551" height="1" uuid="8abb6c2a-abaf-48b1-95df-b372b2bde799"/>
+			</line>
+			<staticText>
+				<reportElement x="22" y="18" width="100" height="20" uuid="51a29ddf-866d-4fb1-b129-9a0ef7e4fae0"/>
+				<text><![CDATA[Dumlupınar Üniversitesi]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{COLUMN_COUNT}<=$F{derlik_salon_kapasitesi}]]></printWhenExpression>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="17" width="551" height="1" uuid="10eb54d1-cb96-41a7-9d12-ffe0b5f98bad"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="162" y="0" width="146" height="18" uuid="9814813d-5731-4c8e-9b22-c42be6887a8f"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ogrenci_O_adi}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="SubTitle" isPrintRepeatedValues="false" x="0" y="0" width="162" height="18" forecolor="#000000" uuid="cb6ac5a1-2ffa-4976-b5be-27057785bf0e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ogrenci_O_numara}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="308" y="0" width="1" height="18" uuid="3f3f5a58-0343-48f5-a7c0-78b0c669f6ed"/>
+			</line>
+			<line>
+				<reportElement x="393" y="1" width="1" height="16" uuid="2dec51ec-a795-4a92-9c1b-47a04db2c8a8"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="b11f96f8-40d3-433d-b6fb-17cc60a0b7b1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="511" y="0" width="40" height="13" forecolor="#FFFFFF" uuid="aa0f3bfc-ab69-4320-bd58-94a4b6fa2439"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="3fa18583-8553-4582-a910-4c883ef67426"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="418" y="0" width="80" height="13" forecolor="#FFFFFF" uuid="a7192e1b-3381-4189-816c-af4322837fd5"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
